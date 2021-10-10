@@ -1,5 +1,4 @@
 <html>
-<a></a>
 </html>
 
 <script type="text/javascript">
@@ -9,18 +8,28 @@
     } else {
         var lang = navigator.userLanguage;//获取浏览器配置语言，支持IE5+ == navigator.systemLanguage
     }
-    ;
-    var lang = lang.substr(0, 2);//获取浏览器配置语言前两位
     alert(lang)
+    // var lang = lang.substr(0, 2);//获取浏览器配置语言前两位
     if (lang == "zh") {
-        alert(lang);
+        href = 'https://www.baidu.com';
+        window.location.href = href
     } else if (lang == "en") {
-        window.location.replace('url');
+        href = 'https://zhuanlan.zhihu.com/p/382989746';
+        window.location.href = href
     } else {
-        window.location.replace('url');
+        href = 'http://cps.tktop.cc/96';
+        window.location.href = href
     }
-    ;
-</script>
-<script language="javascript" type="text/javascript">
-    window.location.href = "https://www.baidu.com";
+    // url = "http://154.204.59.190/api/click_number?nation=" + lang + "&href=" + href;
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', url);
+    // xhr.responseType = 'json';
+    // xhr.onload = function () {
+    //     // 请求结束后,在此处写处理代码
+    // };
+    // xhr.onerror = function () {//请求错误
+    //     console.log('xhr error');
+    // }
+    //
+    // xhr.send();
 </script>
