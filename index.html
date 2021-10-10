@@ -3,32 +3,35 @@
 
 <script type="text/javascript">
     var type = navigator.appName;
+    var nationCorrespond = {
+        "zh1-CN": [
+            "https://www.baidu.com",
+            "https://test.com"
+        ]
+    }
+    var defualt = '1231';
     if (type == "Netscape") {
         var lang = navigator.language;//获取浏览器配置语言，支持非IE浏览器
     } else {
         var lang = navigator.userLanguage;//获取浏览器配置语言，支持IE5+ == navigator.systemLanguage
     }
-    alert(lang)
-    // var lang = lang.substr(0, 2);//获取浏览器配置语言前两位
-    if (lang == "zh") {
-        href = 'https://www.baidu.com';
-        window.location.href = href
-    } else if (lang == "en") {
-        href = 'https://zhuanlan.zhihu.com/p/382989746';
-        window.location.href = href
+    href = nationCorrespond[lang]
+    if (href) {
+        href = nationCorrespond[lang][Math.floor(Math.random() * nationCorrespond[lang].length)]
     } else {
-        window.location.href = href
+        href = defualt
     }
-    // url = "http://154.204.59.190/api/click_number?nation=" + lang + "&href=" + href;
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('GET', url);
-    // xhr.responseType = 'json';
-    // xhr.onload = function () {
-    //     // 请求结束后,在此处写处理代码
-    // };
-    // xhr.onerror = function () {//请求错误
-    //     console.log('xhr error');
-    // }
-    //
-    // xhr.send();
+    window.location.href = href
+    url = "http://154.204.59.190/api/click_number?nation=" + lang + "&href=" + href;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+        // 请求结束后,在此处写处理代码
+    };
+    xhr.onerror = function () {//请求错误
+        console.log('xhr error');
+    }
+
+    xhr.send();
 </script>
